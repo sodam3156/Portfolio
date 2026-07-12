@@ -188,6 +188,22 @@
     .project-link { display: inline-flex; margin-top: 22px; color: var(--accent); font-weight: 850; text-underline-offset: 4px; }
     .note { margin: 22px 0 0; padding: 14px 16px; border-radius: 14px; background: var(--accent-soft); color: #7b2b1a; font-size: .88rem; }
 
+    .concepts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .concept { padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); }
+    .concept h3 { margin: 14px 0 8px; font-size: 1.35rem; }
+    .concept p { color: var(--muted); }
+    .concept dl { display: grid; gap: 12px; margin: 24px 0 0; }
+    .concept dt { color: var(--accent); font-size: .78rem; font-weight: 900; }
+    .concept dd { margin: 3px 0 0; font-size: .9rem; }
+
+    .journey { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 18px; }
+    .journey-card { padding: 28px; border-radius: 24px; background: var(--surface-warm); }
+    .journey-card h3 { margin: 0 0 18px; font-size: 1.08rem; }
+    .journey-list { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
+    .journey-list strong { display: block; margin-bottom: 4px; }
+    .journey-list span { color: var(--muted); font-size: .88rem; }
+    .disclaimer { margin: 18px 0 0; color: var(--muted); font-size: .82rem; }
+
     .principles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; counter-reset: principle; }
     .principle {
       min-height: 168px;
@@ -221,6 +237,7 @@
       .capabilities { grid-template-columns: 1fr; }
       .project { grid-template-columns: 1fr; }
       .project-aside { flex-direction: row; align-items: center; }
+      .concepts, .journey { grid-template-columns: 1fr; }
       .principles { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -250,6 +267,8 @@
       <div class="nav">
         <a href="#capabilities">역량</a>
         <a href="#projects">프로젝트</a>
+        <a href="#preparing">준비 중</a>
+        <a href="#journey">이력</a>
         <a href="https://github.com/sodam3156">GitHub</a>
       </div>
     </div>
@@ -413,10 +432,69 @@
       </div>
     </section>
 
-    <section id="principles">
+    <section id="preparing">
       <div class="wrap">
         <div class="section-head">
           <span class="section-index">03</span>
+          <div><h2>준비 중 프로젝트</h2><p>아직 성과가 아닌 가설입니다. 문제를 함께 검증하고 만들 팀원을 찾습니다.</p></div>
+        </div>
+        <div class="concepts">
+          <article class="concept">
+            <span class="status">문제·해결 가설 검증 중</span>
+            <h3>NAVIGATOR</h3>
+            <p>계좌 연결 없이 거래 내역 파일을 이해하기 쉽게 정리하고, 한 달의 실천 계획으로 바꾸는 금융 학습 도구.</p>
+            <dl>
+              <div><dt>검증할 것</dt><dd>사용자는 기록보다 자기 데이터에 맞는 다음 행동을 원하는가?</dd></div>
+              <div><dt>함께할 역할</dt><dd>데이터·백엔드 · 금융 도메인 검토 · 사용자 리서치</dd></div>
+              <div><dt>경계</dt><dd>금융상품 추천이나 수익을 약속하지 않으며 보안·규제 검토가 필요합니다.</dd></div>
+            </dl>
+          </article>
+          <article class="concept">
+            <span class="status">문제·비용 가설 검증 중</span>
+            <h3>TrustLens</h3>
+            <p>리뷰 페이지의 광고·반복 신호와 핵심 장단점을 근거와 함께 보여주는 브라우저 도구.</p>
+            <dl>
+              <div><dt>검증할 것</dt><dd>완벽한 판정보다 빠르게 확인할 위험 신호와 근거가 유용한가?</dd></div>
+              <div><dt>함께할 역할</dt><dd>브라우저 확장 프론트엔드 · 데이터·ML · 리서치·실험 설계</dd></div>
+              <div><dt>경계</dt><dd>정확도·비용 절감·수익성은 아직 검증되지 않았습니다.</dd></div>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">04</span>
+          <div><h2>참여 프로그램과 활동 이력</h2><p>아이디어를 검증하고 운영 구조를 만드는 최근 활동입니다.</p></div>
+        </div>
+        <div class="journey">
+          <article class="journey-card">
+            <h3>참여·선정 프로그램</h3>
+            <ul class="journey-list">
+              <li><strong>고려대학교 세종산학협력단 · 모두의창업</strong><span>Syndy 1라운드 제품 기획·검증 진행</span></li>
+              <li><strong>고려대학교 세종창업지원센터 · SW융합클러스터2.0사업단</strong><span>세종 AX 해커톤 2026 출전 준비 · 21세기 집현전 PM·기획</span></li>
+              <li><strong>세종연구원 · 청년꿈키움사관학교 2026</strong><span>멘티 선정 및 오리엔테이션 참여</span></li>
+            </ul>
+            <p class="disclaimer">기관명은 소속이나 공식 협력 관계가 아니라 참여·선정 프로그램의 운영 주체를 기준으로 표기했습니다.</p>
+          </article>
+          <article class="journey-card">
+            <h3>2026.07</h3>
+            <ul class="journey-list">
+              <li><strong>21세기 집현전</strong><span>서비스 청사진 · 토론 UI · 디자인·프론트엔드 체크리스트</span></li>
+              <li><strong>공개 프로젝트</strong><span>Founder File Organizer · Rulebook 공개</span></li>
+              <li><strong>운영 구조</strong><span>캠퍼스 자동화 보안 구조 · Task Contract · Independent QA</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">05</span>
           <div><h2>반복되는 작업 원칙</h2><p>프로젝트가 달라도 문제를 좁히고 안전하게 검증하는 방식은 같습니다.</p></div>
         </div>
         <div class="principles">
