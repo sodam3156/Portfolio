@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="제품 기획, AI 워크플로, 안전한 자동화를 실제 프로젝트로 보여주는 JUN의 공개 포트폴리오.">
+  <meta property="og:title" content="JUN · Product Builder Portfolio">
+  <meta property="og:description" content="복잡한 문제를 단순한 사용자 흐름과 검증 가능한 시스템으로 바꿉니다.">
+  <meta property="og:type" content="website">
+  <title>JUN · Product Builder Portfolio</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <style>
+    :root {
+      --paper: #fffdf8;
+      --surface: #ffffff;
+      --surface-warm: #f5f0e7;
+      --ink: #172f2b;
+      --muted: #5c6e69;
+      --accent: #d94b2b;
+      --accent-soft: #ffe5dd;
+      --navy: #24344d;
+      --green: #26705e;
+      --line: rgba(23, 47, 43, .13);
+      --shadow: 0 18px 50px rgba(28, 42, 38, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.65;
+      letter-spacing: -.012em;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 253, 248, .88);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .wrap {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { font-weight: 850; text-decoration: none; letter-spacing: -.03em; }
+    .nav { display: flex; gap: 20px; font-size: .9rem; font-weight: 700; }
+    .nav a { text-decoration: none; color: var(--muted); }
+    .nav a:hover { color: var(--accent); }
+
+    .hero {
+      position: relative;
+      padding: 96px 0 72px;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: -130px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,75,43,.17), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-weight: 850;
+      font-size: .82rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 870px;
+      margin: 0;
+      font-size: clamp(2.55rem, 7vw, 5.7rem);
+      line-height: 1.02;
+      letter-spacing: -.065em;
+    }
+    h1 em { color: var(--accent); font-style: normal; }
+    .hero-copy {
+      max-width: 650px;
+      margin: 28px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 800;
+      background: var(--surface);
+    }
+    .button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .button:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(23,47,43,.1); }
+    .proofs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--surface-warm);
+      color: var(--muted);
+      font-size: .85rem;
+      font-weight: 720;
+    }
+
+    section { padding: 78px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+    .section-index { color: var(--accent); font-weight: 900; letter-spacing: .12em; }
+    .section-head h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -.045em; }
+    .section-head p { max-width: 660px; margin: 10px 0 0; color: var(--muted); }
+
+    .capabilities {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .capability {
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--surface);
+    }
+    .capability .num { color: var(--accent); font-size: .8rem; font-weight: 900; }
+    .capability h3 { margin: 12px 0 8px; font-size: 1.05rem; }
+    .capability p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+    .projects { display: grid; gap: 22px; }
+    .project {
+      position: relative;
+      display: grid;
+      grid-template-columns: 235px 1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .project-aside {
+      padding: 28px;
+      color: #fff;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .project:nth-child(2) .project-aside,
+    .project:nth-child(5) .project-aside { background: var(--accent); }
+    .project:nth-child(3) .project-aside,
+    .project:nth-child(6) .project-aside { background: var(--green); }
+    .project-no { font-size: 2.8rem; font-weight: 900; letter-spacing: -.06em; opacity: .92; }
+    .status { width: fit-content; padding: 7px 10px; border-radius: 999px; background: rgba(255,255,255,.15); font-size: .78rem; font-weight: 800; }
+    .project-main { padding: 30px 32px 32px; }
+    .project-main h3 { margin: 0; font-size: clamp(1.3rem, 3vw, 1.85rem); letter-spacing: -.035em; }
+    .oneline { margin: 12px 0 18px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+    .tag { padding: 6px 10px; border-radius: 999px; background: var(--surface-warm); color: var(--muted); font-size: .78rem; font-weight: 750; }
+    .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 22px; margin: 0; padding: 0; list-style: none; }
+    .facts li { position: relative; padding-left: 18px; font-size: .92rem; }
+    .facts li::before { content: ""; position: absolute; left: 0; top: .67em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .project-link { display: inline-flex; margin-top: 22px; color: var(--accent); font-weight: 850; text-underline-offset: 4px; }
+    .note { margin: 22px 0 0; padding: 14px 16px; border-radius: 14px; background: var(--accent-soft); color: #7b2b1a; font-size: .88rem; }
+
+    .principles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; counter-reset: principle; }
+    .principle {
+      min-height: 168px;
+      padding: 20px;
+      border-top: 3px solid var(--accent);
+      background: var(--surface-warm);
+      counter-increment: principle;
+    }
+    .principle::before { content: "0" counter(principle); color: var(--accent); font-size: .78rem; font-weight: 900; }
+    .principle h3 { margin: 24px 0 8px; font-size: .96rem; }
+    .principle p { margin: 0; color: var(--muted); font-size: .84rem; }
+
+    .privacy {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 30px;
+      border-radius: 24px;
+      color: #fff;
+      background: var(--ink);
+    }
+    .privacy h2 { margin: 0 0 8px; font-size: 1.4rem; }
+    .privacy p { margin: 0; color: rgba(255,255,255,.72); }
+    .privacy .button { color: var(--ink); background: #fff; }
+
+    footer { padding: 42px 0 60px; color: var(--muted); font-size: .86rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 860px) {
+      .capabilities { grid-template-columns: 1fr; }
+      .project { grid-template-columns: 1fr; }
+      .project-aside { flex-direction: row; align-items: center; }
+      .principles { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .topbar .wrap { min-height: 58px; }
+      .nav a:not(:last-child) { display: none; }
+      .hero { padding: 70px 0 54px; }
+      section { padding: 60px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 6px; }
+      .facts { grid-template-columns: 1fr; }
+      .project-main { padding: 24px 20px 26px; }
+      .principles { grid-template-columns: 1fr; }
+      .privacy { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="주요 메뉴">
+    <div class="wrap">
+      <a class="brand" href="#top">JUN · Product Builder</a>
+      <div class="nav">
+        <a href="#capabilities">역량</a>
+        <a href="#projects">프로젝트</a>
+        <a href="https://github.com/sodam3156">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Product · AI Workflow · Safe Automation</p>
+      <h1>복잡한 문제를<br><em>행동 가능한 흐름</em>으로.</h1>
+      <p class="hero-copy">사용자 문제를 좁히고, 서비스 청사진과 수용 조건을 만들고, 문서·코드·자동화가 같은 방향으로 움직이게 합니다.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#projects">프로젝트 보기</a>
+        <a class="button" href="https://github.com/sodam3156">GitHub @sodam3156</a>
+      </div>
+      <div class="proofs" aria-label="작업 범위">
+        <span class="pill">제품 기획·PM</span>
+        <span class="pill">AI 워크플로</span>
+        <span class="pill">Python 자동화</span>
+        <span class="pill">Privacy by Design</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="capabilities">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">01</span>
+          <div>
+            <h2>문제 정의에서 검증까지</h2>
+            <p>기술 이름을 나열하기보다 실제 프로젝트에서 어떤 문제를 어떻게 구조화했는지 보여줍니다.</p>
+          </div>
+        </div>
+        <div class="capabilities">
+          <article class="capability">
+            <span class="num">01</span>
+            <h3>제품 구조화</h3>
+            <p>사용자·문제·핵심 행동·제외 범위·성공 지표를 연결해 가장 작은 MVP를 정의합니다.</p>
+          </article>
+          <article class="capability">
+            <span class="num">02</span>
+            <h3>AI 협업 설계</h3>
+            <p>역할, 입력, 수용 조건, 독립 검토, 비용·재시도 상한을 문서와 워크플로로 만듭니다.</p>
+          </article>
+          <article class="capability">
+            <span class="num">03</span>
+            <h3>안전한 자동화</h3>
+            <p>로컬 우선, 최소수집, dry-run, SHA-256 검증, 복구 가능한 변경을 제품 기본값으로 둡니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">02</span>
+          <div>
+            <h2>검증 가능한 프로젝트</h2>
+            <p>GitHub 문서와 코드에서 확인되는 상태만 사용했습니다. 아직 계획인 내용은 계획으로 분리했습니다.</p>
+          </div>
+        </div>
+
+        <div class="projects">
+          <article class="project">
+            <aside class="project-aside"><span class="project-no">01</span><span class="status">기획·MVP 설계</span></aside>
+            <div class="project-main">
+              <h3>Syndy — 흩어진 일정 정보를 캘린더 행동으로</h3>
+              <p class="oneline">메신저·이메일·캡처 속 일정 후보를 추출하고, 사용자가 확인한 뒤 캘린더에 등록하는 최소수집형 일정 흐름.</p>
+              <div class="tags"><span class="tag">제품 기획</span><span class="tag">일정 자동화</span><span class="tag">Privacy by Minimalism</span></div>
+              <ul class="facts">
+                <li>PSSD로 문제·해결책·확장·개발 범위 문서화</li>
+                <li>입력→추출→확인→등록으로 MVP 축소</li>
+                <li>원문 즉시 폐기와 최소 저장 원칙</li>
+                <li>팀 온보딩과 기술·보안 검토 질문 설계</li>
+              </ul>
+              <p class="note">현재는 실제 사용성 검증과 기술 스택 확정 전 단계입니다.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <aside class="project-aside"><span class="project-no">02</span><span class="status">기획·프로토타이핑</span></aside>
+            <div class="project-main">
+              <h3>21세기 집현전 — 여러 관점을 관전하는 AI 토론</h3>
+              <p class="oneline">생활 고민을 작성하고 조선시대 전문가 페르소나를 선택하면, 세종대왕이 의견 차이를 중재하는 관전형 AI 콘텐츠.</p>
+              <div class="tags"><span class="tag">멀티페르소나</span><span class="tag">서비스 청사진</span><span class="tag">세종 AX 해커톤</span></div>
+              <ul class="facts">
+                <li>준비→실행→결과 서비스 청사진</li>
+                <li>회의상 기반 세로형 토론 피드</li>
+                <li>전문가 캐릭터와 메시지 상태 동기화</li>
+                <li>개별 의견별 공감·비공감 피드백</li>
+              </ul>
+              <p class="note">React·FastAPI·LLM 체이닝은 후보 구조이며 킥오프에서 최종 확정합니다.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <aside class="project-aside"><span class="project-no">03</span><span class="status">구현됨 · Open Source</span></aside>
+            <div class="project-main">
+              <h3>Founder File Organizer — 지우기 전에 증명하는 파일 정리</h3>
+              <p class="oneline">정확한 중복 검증과 미리보기를 기본으로 삼은 Windows 로컬 파일 정리·예약 자동화 도구.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">SHA-256</span><span class="tag">dry-run</span><span class="tag">Windows</span></div>
+              <ul class="facts">
+                <li>크기와 SHA-256이 모두 같을 때만 중복 판정</li>
+                <li>명시적 --apply 전에는 변경하지 않음</li>
+                <li>영구 삭제 대신 운영체제 휴지통 사용</li>
+                <li>CI·CodeQL·Dependabot·보안 신고 절차</li>
+              </ul>
+              <a class="project-link" href="https://github.com/sodam3156/Restruct-myPC">공개 저장소 보기 →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <aside class="project-aside"><span class="project-no">04</span><span class="status">구현됨 · Open Source</span></aside>
+            <div class="project-main">
+              <h3>Rulebook — 공고문을 AI가 읽을 수 있는 운영 데이터로</h3>
+              <p class="oneline">정부지원사업·공모전 규정을 구조화하고, AI가 필요한 문서만 읽어 판단과 초안을 이어가게 하는 아카이브.</p>
+              <div class="tags"><span class="tag">Markdown</span><span class="tag">YAML</span><span class="tag">Knowledge Architecture</span></div>
+              <ul class="facts">
+                <li>meta·rules·notes·attachments 책임 분리</li>
+                <li>진행 상태와 마감 인덱스 자동 생성</li>
+                <li>등록→적합도→지원서 워크플로 설계</li>
+                <li>공개 규정과 비공개 프로필의 저장소 분리</li>
+              </ul>
+              <a class="project-link" href="https://github.com/sodam3156/rulebook-public">공개 저장소 보기 →</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <aside class="project-aside"><span class="project-no">05</span><span class="status">운영 자동화</span></aside>
+            <div class="project-main">
+              <h3>세종캠퍼스 자동화 허브 — 학생 정보를 필요한 채널로</h3>
+              <p class="oneline">공지·학사일정·셔틀버스·대외활동·식단을 수집해 Discord에 필요한 시점과 형식으로 전달하는 자동화 모음.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">Discord</span><span class="tag">GitHub Actions</span><span class="tag">Crawling</span></div>
+              <ul class="facts">
+                <li>여러 정보원을 목적별 봇으로 분리</li>
+                <li>새 글만 전송하는 중복 방지 상태 관리</li>
+                <li>월·분기·연도 학사일정 조회</li>
+                <li>GitHub Actions 스케줄과 Secrets 관리</li>
+              </ul>
+              <p class="note">운영 채널과 저장소 정보는 비공개로 유지하고 기능 구조만 소개합니다.</p>
+            </div>
+          </article>
+
+          <article class="project">
+            <aside class="project-aside"><span class="project-no">06</span><span class="status">운영 체계 설계</span></aside>
+            <div class="project-main">
+              <h3>AI Founder Workspace — 인간·AI 작업자의 실행 운영체계</h3>
+              <p class="oneline">제품 가설, 백로그, 결정, 권한, 독립 검토를 연결해 소규모 팀이 AI와 안전하게 일하도록 만든 문서 중심 시스템.</p>
+              <div class="tags"><span class="tag">Task Contract</span><span class="tag">Independent QA</span><span class="tag">Human-AI Collaboration</span></div>
+              <ul class="facts">
+                <li>제품 요약·백로그·결정 기록의 단일 기준</li>
+                <li>PM·Engineering·QA의 최소 역할 구조</li>
+                <li>결과·수용 조건·예산·롤백 작업 계약</li>
+                <li>권한 등급과 비용·재시도 중단 조건</li>
+              </ul>
+              <p class="note">개인 PC 진단, 로컬 경로, 계정 정보는 공개하지 않습니다.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="section-index">03</span>
+          <div><h2>반복되는 작업 원칙</h2><p>프로젝트가 달라도 문제를 좁히고 안전하게 검증하는 방식은 같습니다.</p></div>
+        </div>
+        <div class="principles">
+          <article class="principle"><h3>핵심 행동부터</h3><p>기능 목록보다 사용자의 한 번의 성공 행동을 먼저 정의합니다.</p></article>
+          <article class="principle"><h3>계획과 구현 분리</h3><p>아직 실행되지 않은 내용은 성과처럼 표현하지 않습니다.</p></article>
+          <article class="principle"><h3>복구 가능성</h3><p>dry-run, 백업, 검증, 롤백을 변경보다 먼저 설계합니다.</p></article>
+          <article class="principle"><h3>최소수집</h3><p>개인정보는 잘 지키기 전에 가능한 한 수집하지 않습니다.</p></article>
+          <article class="principle"><h3>문서와 코드 동기화</h3><p>수용 조건과 실제 검증 결과를 같은 저장소에 남깁니다.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="privacy">
+          <div><h2>공개 포트폴리오 원칙</h2><p>이메일·전화번호·주소·학적·팀원 식별정보는 게시하지 않습니다. 공개 가능한 프로젝트 사실과 GitHub 계정만 제공합니다.</p></div>
+          <a class="button" href="https://github.com/sodam3156">GitHub에서 보기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><span>JUN · Product Builder Portfolio</span><span>Updated from verified GitHub project records · 2026</span></div>
+  </footer>
+</body>
+</html>
