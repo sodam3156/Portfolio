@@ -125,24 +125,23 @@ AI나 클라우드 서비스 없이 로컬에서 파일 분류, 정확한 중복
 
 ---
 
-## 6. AI Founder Workspace — 인간·AI 작업자를 위한 실행 운영체계
+## 6. Rulebook-privit
 
-**상태:** 운영 체계 설계
+**상태:** 통합 운영 중
 
-**역할:** 제품 운영 모델·작업 계약·검토 구조 설계
+**역할:** 창업 운영 지식 구조·작업 계약·검토 체계 설계
 
-**키워드:** Human-AI Collaboration · Task Contract · Independent QA
+**키워드:** Knowledge Operations · Human-AI Collaboration · Independent QA
 
-아이디어를 제품 가설, 검증 가능한 백로그, MVP로 연결하기 위한 문서 중심 작업 공간입니다. 많은 에이전트를 만드는 것보다 책임·검토·승인 기준을 명확히 하는 데 집중합니다.
+기존 GPT Founder Workspace의 운영 지식을 비공개 Rulebook 저장소 안 `operations/`로 통합한 창업 실행 허브입니다. 지원사업 규정, 벤처별 실행 정보, 팀·사업 팩트, 프로젝트 공통 운영 지식의 단일 기준 위치를 분리해 지식 파편화를 줄였습니다.
 
-- 제품 요약, 백로그, 결정 기록을 단일 기준 문서로 분리
-- `한 작업 = 한 책임자 = 한 브랜치/워크트리` 원칙
-- PM Dispatcher, Engineering, Independent QA의 최소 역할 구조
-- 결과·범위·수용 조건·예산·롤백을 담는 Task Contract
-- 읽기·초안·내부 변경·외부 변경의 권한 등급
-- 비용·시간·재시도 상한과 독립 검토 게이트
+- `profile/`, `programs/`, `projects/`, `operations/`로 정보 책임을 분리
+- 원본 운영 문서 11개를 provenance에 보존하고 SHA-256으로 무결성 검증
+- 제품 요약·백로그·결정 기록을 프로젝트별 템플릿으로 재사용
+- `한 작업 = 한 책임자 = 한 브랜치/워크트리`와 독립 검토 원칙
+- 환경 의존 런북과 과거 진단을 날짜가 있는 스냅샷으로 관리
 
-**공개 원칙:** 개인 PC 진단, 로컬 경로, 계정 정보가 포함된 운영 기록은 공개하지 않고 재사용 가능한 방법론만 소개합니다.
+**공개 원칙:** 비공개 저장소 링크와 개인 PC 진단, 로컬 경로, 계정 정보는 공개하지 않고 재사용 가능한 구조와 방법론만 소개합니다.
 
 ---
 
@@ -205,7 +204,7 @@ AI나 클라우드 서비스 없이 로컬에서 파일 분류, 정확한 중복
 - 21세기 집현전 서비스 청사진, 토론 UI, 디자인·프론트엔드 체크리스트 설계
 - Founder File Organizer와 Rulebook 공개
 - 세종캠퍼스 자동화 허브의 GitHub Actions·보안 구조 개선
-- AI Founder Workspace의 Task Contract·Independent QA 운영 모델 정리
+- GPT Founder Workspace의 운영 지식을 Rulebook-privit에 통합하고 Task Contract·Independent QA 모델 정리
 - 프롬프트 선배 사용자 테스트용 웹 프로토타입 구현
 
 ---
